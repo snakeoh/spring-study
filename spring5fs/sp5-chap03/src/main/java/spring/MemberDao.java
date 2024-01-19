@@ -1,5 +1,6 @@
 package spring;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,11 @@ public class MemberDao {
 
     public Member selectByEmail(String email) {
         return map.get(email);
+    }
+
+    // chap 03 6.2에서 추가
+    public Collection<Member> selectAll() {
+        return map.values();
     }
 
     public void insert(Member member) {

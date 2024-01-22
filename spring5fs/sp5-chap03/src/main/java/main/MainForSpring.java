@@ -27,10 +27,6 @@ public class MainForSpring {
     public static void main(String[] args) throws IOException {
         ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
-        // @Configuration 설정 클래스도 빈으로 등록함
-        AppConf1 appConf1 = ctx.getBean(AppConf1.class);
-        System.out.println(appConf1 != null);
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             System.out.println("명령어를 입력하세요:");
@@ -134,7 +130,8 @@ public class MainForSpring {
     }
 
     private static void processVersionCommand() {
-        VersionPrinter versionPrinter = ctx.getBean("versionPrinter", VersionPrinter.class);
+        // VersionPrinter versionPrinter = ctx.getBean("versionPrinter", VersionPrinter.class);
+        VersionPrinter versionPrinter = ctx.getBean(VersionPrinter.class);
         versionPrinter.print();
     }
 }

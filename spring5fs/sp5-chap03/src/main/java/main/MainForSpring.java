@@ -10,6 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
 import spring.Member;
+import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberNotFoundException;
 import spring.MemberRegisterService;
@@ -39,6 +40,9 @@ public class MainForSpring {
                 continue;
             } else if (command.equals("list")) {
                 processListCommand();
+                continue;
+            } else if (command.startsWith("info")) {
+                processInfoCommand(command.split(" "));
                 continue;
             }
             printHelp();
@@ -104,5 +108,14 @@ public class MainForSpring {
     private static void processListCommand() {
         MemberListPrinter listPrinter = ctx.getBean("listPrinter", MemberListPrinter.class);
         listPrinter.printAll();
+    }
+
+    private static void processInfoCommand(String[] arg) {
+        if (arg.length != 2) {
+            printHelp();
+            return;
+        }
+        MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
+        infoPrinter.printMemberInfo(arg[1]);
     }
 }

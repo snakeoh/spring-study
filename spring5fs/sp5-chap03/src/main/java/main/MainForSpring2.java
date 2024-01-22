@@ -20,12 +20,13 @@ import spring.RegisterRequest;
 import spring.VersionPrinter;
 import spring.WrongIdPasswordException;
 
-public class MainForSpring {
+public class MainForSpring2 {
 
     private static ApplicationContext ctx = null;
 
     public static void main(String[] args) throws IOException {
-        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        // ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        ctx = new AnnotationConfigApplicationContext(AppConf1.class, AppConf2.class);
 
         // @Configuration 설정 클래스도 빈으로 등록함
         AppConf1 appConf1 = ctx.getBean(AppConf1.class);

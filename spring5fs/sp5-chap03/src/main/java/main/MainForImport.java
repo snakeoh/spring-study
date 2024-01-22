@@ -1,9 +1,7 @@
 package main;
 
-import assembler.Assembler;
 import config.AppConf1;
-import config.AppConf2;
-import config.AppCtx;
+import config.AppConfImport;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
-import spring.Member;
 import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberNotFoundException;
@@ -20,12 +17,12 @@ import spring.RegisterRequest;
 import spring.VersionPrinter;
 import spring.WrongIdPasswordException;
 
-public class MainForSpring {
+public class MainForImport {
 
     private static ApplicationContext ctx = null;
 
     public static void main(String[] args) throws IOException {
-        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        ctx = new AnnotationConfigApplicationContext(AppConfImport.class);
 
         // @Configuration 설정 클래스도 빈으로 등록함
         AppConf1 appConf1 = ctx.getBean(AppConf1.class);

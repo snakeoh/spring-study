@@ -1,8 +1,5 @@
 package main;
 
-import assembler.Assembler;
-import config.AppConf1;
-import config.AppConf2;
 import config.AppCtx;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +8,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
-import spring.Member;
 import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberNotFoundException;

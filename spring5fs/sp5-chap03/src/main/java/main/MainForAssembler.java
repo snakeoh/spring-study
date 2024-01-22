@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
-import spring.Member;
 import spring.MemberNotFoundException;
 import spring.MemberRegisterService;
 import spring.RegisterRequest;

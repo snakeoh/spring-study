@@ -1,5 +1,6 @@
 package config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.ChangePasswordService;
@@ -31,20 +32,22 @@ public class AppCtx {
         return new ChangePasswordService();
     }
 
+    // @Bean
+    // public MemberPrinter memberPrinter() {
+    //     return new MemberPrinter();
+    // }
+
     @Bean
-    public MemberPrinter memberPrinter() {
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1() {
         return new MemberPrinter();
     }
 
-    // @Bean
-    // public MemberPrinter memberPrinter1() {
-    //     return new MemberPrinter();
-    // }
+    @Bean
+    public MemberPrinter memberPrinter2() {
+        return new MemberPrinter();
+    }
 
-    // @Bean
-    // public MemberPrinter memberPrinter2() {
-    //     return new MemberPrinter();
-    // }
     // Autowired 설정으로 의존 주입 시 결국은 메서드 이름이 아니라 클래스로 구분해서 넣는다?
 
     @Bean

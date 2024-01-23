@@ -20,14 +20,15 @@ public class AppCtx {
 
     @Bean
     public MemberRegisterService memberRegSvc() {
-        return new MemberRegisterService(memberDao());
+        return new MemberRegisterService();
     }
 
     @Bean
     public ChangePasswordService changePwdSvc() {
-        ChangePasswordService pwdSvc = new ChangePasswordService();
-        pwdSvc.setMemberDao(memberDao());
-        return pwdSvc;
+        // ChangePasswordService pwdSvc = new ChangePasswordService();
+        // pwdSvc.setMemberDao(memberDao());
+        // return pwdSvc;
+        return new ChangePasswordService();
     }
 
     // 6.2에서 추가
@@ -38,15 +39,17 @@ public class AppCtx {
 
     @Bean
     public MemberListPrinter listPrinter() {
-        return new MemberListPrinter(memberDao(), memberPrinter());
+        // return new MemberListPrinter(memberDao(), memberPrinter());
+        return new MemberListPrinter();
     }
 
     @Bean
     public MemberInfoPrinter infoPrinter() {
-        MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
-        infoPrinter.setMemberDao(memberDao());
-        infoPrinter.setPrinter(memberPrinter());
-        return infoPrinter;
+        // MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+        // infoPrinter.setMemberDao(memberDao());
+        // infoPrinter.setPrinter(memberPrinter());
+        // return infoPrinter;
+        return new MemberInfoPrinter();
     }
 
     @Bean

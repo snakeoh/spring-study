@@ -31,11 +31,21 @@ public class AppCtx {
         return new ChangePasswordService();
     }
 
-    // 6.2에서 추가
     @Bean
     public MemberPrinter memberPrinter() {
         return new MemberPrinter();
     }
+
+    // @Bean
+    // public MemberPrinter memberPrinter1() {
+    //     return new MemberPrinter();
+    // }
+
+    // @Bean
+    // public MemberPrinter memberPrinter2() {
+    //     return new MemberPrinter();
+    // }
+    // Autowired 설정으로 의존 주입 시 결국은 메서드 이름이 아니라 클래스로 구분해서 넣는다?
 
     @Bean
     public MemberListPrinter listPrinter() {

@@ -9,6 +9,7 @@ import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberPrinter;
 import spring.MemberRegisterService;
+import spring.MemberSummaryPrinter;
 import spring.VersionPrinter;
 
 @Configuration
@@ -44,8 +45,8 @@ public class AppCtx {
     }
 
     @Bean
-    public MemberPrinter memberPrinter2() {
-        return new MemberPrinter();
+    public MemberSummaryPrinter memberPrinter2() {
+        return new MemberSummaryPrinter();
     }
 
     // Autowired 설정으로 의존 주입 시 결국은 메서드 이름이 아니라 클래스로 구분해서 넣는다?

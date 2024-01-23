@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 public class MemberInfoPrinter {
 
-    @Autowired
     private MemberDao memDao;
-
     private MemberPrinter printer;
 
     public void printMemberInfo(String email) {

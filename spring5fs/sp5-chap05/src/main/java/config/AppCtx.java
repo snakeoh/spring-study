@@ -15,12 +15,14 @@ import spring.VersionPrinter;
 
 @Configuration
 @ComponentScan(basePackages = { "spring" })
+// @ComponentScan(basePackages = { "spring", "spring2" })
 public class AppCtx {
 
-    // @Bean
-    // public MemberDao memberDao() {
-    //     return new MemberDao();
-    // }
+    @Bean
+    public MemberDao memberDao2() {
+        MemberDao memberDao = new MemberDao();
+        return memberDao;
+    }
 
     // @Bean
     // public MemberRegisterService memberRegSvc() {

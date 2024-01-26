@@ -16,6 +16,9 @@ public class DbConfig {
         ds.setPassword("spring5");
         ds.setInitialSize(2);
         ds.setMaxActive(10);
+        ds.setTestWhileIdle(true); // 유휴 커넥션 검사
+        ds.setMinEvictableIdleTimeMillis(1000 * 60 * 3); // 최소 유휴 시간 3분
+        ds.setTimeBetweenEvictionRunsMillis(1000 * 10); // 10초 주기
         return ds;
     }
 }

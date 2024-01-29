@@ -102,10 +102,16 @@ public class MemberDao {
         );
         return results;
     }
+
     // ==
     // public Collection<Member> selectAll(){
     //     List<Member> results = jdbcTemplate.query("select * from MEMBER",
     //     new MemberRowMapper());
     //     return results;
     // }
+
+    public int count() {
+        Integer count = jdbcTemplate.queryForObject("select count(8) from MEMBER", Integer.class);
+        return count;
+    }
 }

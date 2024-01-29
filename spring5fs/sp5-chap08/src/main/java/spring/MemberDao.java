@@ -1,11 +1,15 @@
 package spring;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 
 public class MemberDao {
@@ -87,6 +91,23 @@ public class MemberDao {
             member.getPassword(),
             member.getEmail()
         );
+        // PreparedStatementCreator를 이용한 쿼리 실행
+        // jdbcTemplate.update(new PreparedStatementCreator() {
+        //     @Override
+        //     public PreparedStatement createdPreparedStatement(Connection con) throws SQLException{
+        //         // 파라미터로 전달받은 Connection을 이용해서 PreparedStatement 생성
+        //         PreparedStatement pstmt = con.prepareStatement(
+        //             "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) values (?, ?, ?, ?)"
+        //         );
+        //         // 인덱스의 파라미터 값 설정
+        //         pstmt.setString(1, member.getEmail());
+        //         pstmt.setString(2, member.getPassword());
+        //         pstmt.setString(3, member.getName());
+        //         pstmt.setString(4, Timestamp.valueOf(member.getRegisterDateTime()));
+        //         // 생성한 PreparedStatement 객체 리턴
+        //         return pstmt;
+        //     }
+        // });
     }
 
     // public Collection<Member> selectAll() {

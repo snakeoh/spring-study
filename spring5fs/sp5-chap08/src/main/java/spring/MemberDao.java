@@ -80,7 +80,14 @@ public class MemberDao {
 
     public void insert(Member member) {}
 
-    public void update(Member member) {}
+    public void update(Member member) {
+        jdbcTemplate.update(
+            "update MEMBER set NAME = ?, PASSWORD = ? where EMAIL = ?",
+            member.getName(),
+            member.getPassword(),
+            member.getEmail()
+        );
+    }
 
     // public Collection<Member> selectAll() {
     public List<Member> selectAll() {

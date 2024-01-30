@@ -107,6 +107,19 @@ public class MemberDao {
         );
         Number keyValue = keyHolder.getKey();
         member.setId(keyValue.longValue());
+        // 람다
+        // jdbcTemplate.update((Connection con) -> {
+        //     PreparedStatement pstmt = con.prepareStatement(
+        //         "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE)" +
+        //         "values (?, ?, ?, ?)",
+        //         new String[] {"ID"}
+        //     );
+        //     pstmt.setString(1, member.getEmail());
+        //     pstmt.setString(2, member.getPassword());
+        //     pstmt.setString(3, member.getName());
+        //     pstmt.setTimestamp(4, new Timestamp(member.getRegisterDateTime().getLong(null)));
+        //     return pstmt;
+        // }, keyHolder);
     }
 
     public void update(Member member) {

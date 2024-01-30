@@ -92,7 +92,7 @@ public class MemberDao {
                 public PreparedStatement createPreparedStatement(Connection con)
                     throws SQLException {
                     PreparedStatement pstmt = con.prepareStatement(
-                        "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE)" +
+                        "insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) " +
                         "values (?, ?, ?, ?)",
                         new String[] { "ID" }
                     );

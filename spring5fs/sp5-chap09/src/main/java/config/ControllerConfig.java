@@ -1,5 +1,6 @@
 package config;
 
+import chap09.HelloController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

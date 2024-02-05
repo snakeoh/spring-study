@@ -52,20 +52,18 @@
                     ${option}</label>
                 </c:forEach>
             </c:if>
-            <c:if test="${! q.choice}">
-                <input type="text" name="responsed[${ststus.index}]">
+            <c:if test="${! q.choice }">
+                <input type="text" name="responses[${status.index}]">
             </c:if>
         </p>
       </c:forEach>
       <p>
-        <label
-          >응답자 위치:<br />
+        <label>응답자 위치:<br>
           <input type="text" name="res.location" />
         </label>
       </p>
       <p>
-        <label
-          >응답자 나이:<br />
+        <label>응답자 나이:<br>
           <input type="text" name="res.age" />
         </label>
       </p>

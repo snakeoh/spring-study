@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +8,7 @@
   <body>
     <h2>설문조사</h2>
     <form method="post">
-      <p>
+      <!-- <p>
         1. 당신의 역할은?<br />
         <label
           ><input type="radio" name="responses[0]" value="서버" />
@@ -40,7 +41,22 @@
       <p>
         3. 하고싶은 말<br />
         <input type="text" name="responses[2]" />
-      </p>
+      </p> -->
+      <c:forEach var="q" items="${questions}" varStatus="status">
+        <p>
+            ${status.index + 1}.${q.title}<br/>
+            <c:if test="${q.choice}">
+                <c:forEach var="option" items="${q.options}">
+                    <label><input type="radio"
+                        name="responses[${status.index}]" value="${option}">
+                    ${option}</label>
+                </c:forEach>
+            </c:if>
+            <c:if test="${! q.choice}">
+                <input type="text" name="responsed[${ststus.index}]">
+            </c:if>
+        </p>
+      </c:forEach>
       <p>
         <label
           >응답자 위치:<br />

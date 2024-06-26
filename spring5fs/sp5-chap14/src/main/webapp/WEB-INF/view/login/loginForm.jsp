@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><spring:message code="login.title" /><title>
+    <title><spring:message code="login.title" /></title>
 </head>
 <body>
     <form:form modelAttribute="loginCommand">
@@ -26,7 +26,7 @@
         <form:checkbox path="rememberEmail" />
         </label>
     </p>
-    <input type="submit" value="<spring:message code="login.btn" />">
+    <input type="submit" value="<spring:message code='login.btn' />">
     </form:form>
 </body>
 </html>

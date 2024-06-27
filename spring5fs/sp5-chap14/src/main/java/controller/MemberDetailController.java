@@ -1,9 +1,14 @@
 package controller;
 
+import org.omg.CORBA.DynAnyPackage.TypeMismatch;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import com.google.protobuf.Type;
 
 import spring.Member;
 import spring.MemberDao;
@@ -26,5 +31,16 @@ public class MemberDetailController {
         }
         model.addAttribute("member", member);
         return "/member/memberDetail";
+    }
+
+    @ExceptionHandler(TypeMismatchException.class)
+    public String handleTypeMismatchException(TypeMismatchException ex) {
+        // ex 사용해서 로그 남기는 코드 작성
+        return "/member/invalidId";
+    }
+
+    @ExceptionHandler(MemberNotFoundException.class)
+    public String handleMemberNotFoundException() {
+        return "/member/noMember";
     }
 }

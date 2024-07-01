@@ -13,7 +13,7 @@ public class Member {
     @JsonIgnore
     private String password;
     private String name;
-    @JsonFormat(shape = Shape.STRING)
+    // @JsonFormat(shape = Shape.STRING)
     // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime registerDateTime;
 

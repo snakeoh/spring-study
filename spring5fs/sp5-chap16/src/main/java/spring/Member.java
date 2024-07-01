@@ -2,10 +2,13 @@ package spring;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Member {
 
     private Long id;
     private String email;
+    @JsonIgnore
     private String password;
     private String name;
     private LocalDateTime registerDateTime;
@@ -42,7 +45,8 @@ public class Member {
     }
 
     public void changePassword(String oldPassword, String newPassword) {
-        if (!password.equals(oldPassword)) throw new WrongIdPasswordException();
+        if (!password.equals(oldPassword))
+            throw new WrongIdPasswordException();
         this.password = newPassword;
     }
 

@@ -14,6 +14,7 @@ public class Member {
     private String password;
     private String name;
     @JsonFormat(shape = Shape.STRING)
+    // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime registerDateTime;
 
     public Member(String email, String password, String name, LocalDateTime registerDateTime) {

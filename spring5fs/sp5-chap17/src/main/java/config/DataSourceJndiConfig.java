@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Profile;
 import spring.MemberDao;
 
 @Configuration
-public class MemberConfigWithProfile {
+@Profile("real,test")
+public class DataSourceJndiConfig {
     @Autowired
     private DataSource dataSource;
 
@@ -19,33 +20,13 @@ public class MemberConfigWithProfile {
     }
 
     @Configuration
-    // @Profile("dev")
-    @Profile("!real")
+    @Profile("dev")
     public static class DsDevConfig {
         @Bean(destroyMethod = "close")
         public DataSource dataSource() {
             DataSource ds = new DataSource();
             ds.setDriverClassName("com.mysql.jdbc.Driver");
             ds.setUrl("jdbc:mysql://localhost/spring5fs?characterEncoding=utf8");
-            ds.setUsername("spring5");
-            ds.setPassword("spring5");
-            ds.setInitialSize(2);
-            ds.setMaxActive(10);
-            ds.setTestWhileIdle(true);
-            ds.setMinEvictableIdleTimeMillis(60000 * 3);
-            ds.setTimeBetweenEvictionRunsMillis(10 * 1000);
-            return ds;
-        }
-    }
-
-    @Configuration
-    @Profile("real")
-    public static class DsRealConfig {
-        @Bean(destroyMethod = "close")
-        public DataSource dataSource() {
-            DataSource ds = new DataSource();
-            ds.setDriverClassName("com.mysql.jdbc.Driver");
-            ds.setUrl("jdbc:mysql://realdb/spring5fs?characterEncoding=utf8");
             ds.setUsername("spring5");
             ds.setPassword("spring5");
             ds.setInitialSize(2);
